@@ -1,0 +1,29 @@
+---
+- hosts: all
+  handlers:
+    - name: wat
+  tasks:
+    - debug: msg="wat"
+      tags:
+        - config-changed
+        - upgrade-charm
+
+    - include: config-changed.yml
+      tags:
+        - config-changed
+
+    - include: upgrade-charm.yml
+      tags:
+        - upgrade-charm
+
+    - include: docker-cluster.yml
+      tags:
+        - docker-cluster-relation-changed
+
+    - include: register.yml
+      tags:
+        - register-relation-changed
+
+    - include: etcd.yml
+      tags:
+        - etcd-relation-changed

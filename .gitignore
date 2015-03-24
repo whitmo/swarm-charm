@@ -1,0 +1,6 @@
+*~
+*\#*
+/.juju-persistent-config
+/.venv/
+*.pyc
+/src/

@@ -1,0 +1,22 @@
+---
+name: swarm
+summary: Extends Docker Engine to add cluster power
+maintainer: Whit Morriss <whit.morriss@canonical.com>
+description: |
+  Installs a 'swarm' subordinate to interlink docker engines
+tags:
+  - ops
+  - application_development
+  - docker
+subordinate: true
+provides:
+  docker-cluster:
+    interface: containers
+    scope: container
+peers:
+  register:
+    interface: register
+requires:
+  etcd:
+    interface: etcd
+    optional: true

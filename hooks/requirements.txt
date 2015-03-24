@@ -1,0 +1,4 @@
+-e git+https://github.com/whitmo/charmhelpers.git#egg=charmhelpers
+ansible
+path.py
+docker-py

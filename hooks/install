@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+apt-get install -yq python-pip
+pip install -r hooks/requirements.txt
