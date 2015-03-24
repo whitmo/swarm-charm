@@ -1,2 +1,8 @@
 ---
 - debug: msg="etcd"
+
+- name: join cluster
+  docker:
+    image: swarm
+    command:  swarm join --addr=<node_ip:2375> etcd://{{etcd}}/{{path}}
+    state: started

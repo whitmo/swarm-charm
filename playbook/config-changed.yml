@@ -1,2 +1,8 @@
 ---
 - debug: msg="config changed"
+
+- name: ensure swarm container
+  docker:
+    name: swarm
+    image: swarm
+    state: present
