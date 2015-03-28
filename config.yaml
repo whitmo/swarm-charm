@@ -5,8 +5,8 @@ options:
   default: file
   description: |
     Choice between [file,hub,ip].  "file" will default to using a file
-    to track nodes, "hub" will use hosted service and "ip" will use
-    arbitrary ips.
+    to track nodes, "hub" will use the docker hosted service and "ip"
+    will use arbitrary ips.
 
     Using a discovery service via the discovery relation will trump
     any default.
