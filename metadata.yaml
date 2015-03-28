@@ -10,9 +10,8 @@ tags:
   - docker
 subordinate: true
 provides:
-  docker-cluster:
-    interface: containers
-    scope: container
+  swarm-cluster:
+    interface: docker
 peers:
   register:
     interface: register
@@ -20,3 +19,6 @@ requires:
   etcd:
     interface: etcd
     optional: true
+  docker:
+    interface: containers
+    scope: container
