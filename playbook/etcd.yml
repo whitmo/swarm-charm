@@ -1,12 +1,30 @@
 ---
-- debug: msg="etcd"
+## Setup fact.d file for launching our docker containers
 
-#@@ consider using handlers
-- name: join cluster
-  docker:
-    command="join --addr={{unit_private_address}}:2375 etcd://{{current_relation.hostname}}:{{current_relation.port}}/juju-swarm"
-    image=swarm
-    state=reloaded
-    restart_policy=always
-    detach=true
-    publish_all_ports=True
+- name: set commands
+  set_fact:
+    join_command: "join --addr={{unit_private_address}}:2375 etcd://{{current_relation.hostname}}:{{current_relation.port}}/{{discovery_path}}"
+    manage_command: "manage -H tcp://{{unit_private_address}}:2376 etcd://{{current_relation.hostname}}:{{current_relation.port}}/{{discovery_path}}"
+
+
+
+- name: set join command
+  ini_file: "dest=/etc/ansible/facts.d/run.fact
+             section=command
+             option=join
+             value={{join_command}}
+             backup=yes"
+
+- name: set manage command
+  ini_file: "dest=/etc/ansible/facts.d/run.fact
+             section=command
+             option=join
+             value={{manage_command}}
+             backup=yes"
+
+- name: set reload
+  ini_file: "dest=/etc/ansible/facts.d/run.fact
+             section=state
+             option=reload
+             value=True
+             backup=yes"

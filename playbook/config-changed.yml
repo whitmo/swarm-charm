@@ -1,8 +1,24 @@
 ---
 - debug: msg="config changed"
 
+- name: create facts dir
+  file: path=/etc/ansible/facts.d state=directory
+
 - name: ensure swarm container
   docker:
     name: swarm
     image: swarm
     state: present
+
+- set_fact:
+    join_command: "{{ansible_local.command.join|default('')}}"
+    manage_command: "{{ansible_local.command.manage|default('')}}"
+    reload: "{{ansible_local.state.reload|default('')}}"
+
+- name: launch join
+  debug: msg="reload containers"
+  notify:
+    - join cluster
+    - manage cluster
+    - reloaded
+  when: reload
