@@ -1,6 +1,9 @@
 swarm:
   series: trusty
   services:
+    etcd:
+      charm: "local:trusty/etcd"
+      to: 0
     swarm:
       charm: "local:trusty/swarm"
     docker:
@@ -25,3 +28,4 @@ swarm:
     - ["heka-sub:heka_out", "heka-hub:heka_in"]
     - ["heka-sub:heka_out", "heka-hub:heka_in"]
     - ["swarm", "docker"]
+    - ["swarm", "etcd"]
