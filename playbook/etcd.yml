@@ -2,7 +2,9 @@
 - debug: msg="etcd"
 
 - name: join cluster
-  docker:
-    image: swarm
-    command:  swarm join --addr=<node_ip:2375> etcd://{{etcd}}/{{path}}
-    state: started
+  docker: 
+    command="join --addr={{unit_private_address}}:2375 etcd://{{current_relation.hostname}}:{{current_relation.port}}/juju-swarm"
+    image=swarm
+    state=reloaded
+    detach=true
+    publish_all_ports=True

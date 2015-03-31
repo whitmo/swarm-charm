@@ -15,4 +15,4 @@ hooks = AnsibleHooks(playbook_path='playbook/main.yml',
                      default_hooks=list(hook_names()))
 
 if __name__ == "__main__":
-    hooks.execute(sys.argv)
+    hooks.execute(sys.argv, verbosity=3)

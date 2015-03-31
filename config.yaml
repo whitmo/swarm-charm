@@ -1,12 +1,22 @@
 ---
 options:
   discovery_default:
-  type: string
-  default: file
-  description: |
-    Choice between [file,hub,ip].  "file" will default to using a file
-    to track nodes, "hub" will use the docker hosted service and "ip"
-    will use arbitrary ips.
+    type: string
+    default: file
+    description: |
+      Choice between [file,hub,ip].  "file" will default to using a file
+      to track nodes, "hub" will use the docker hosted service and "ip"
+      will use arbitrary ips.
 
-    Using a discovery service via the discovery relation will trump
-    any default.
+      Using a discovery service via the discovery relation will trump
+      any default.
+   
+  discovery_path:
+    type: string
+    default: "juju-swarm"
+    description: |
+      Namespace for discovery for use with etcd.
+      
+      
+  
+  

@@ -10,8 +10,8 @@ tags:
   - docker
 subordinate: true
 provides:
-  swarm-cluster:
-    interface: docker
+  docker-cluster:
+    interface: swarm
 peers:
   register:
     interface: register
