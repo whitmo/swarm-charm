@@ -7,6 +7,6 @@
     command="join --addr={{unit_private_address}}:2375 etcd://{{current_relation.hostname}}:{{current_relation.port}}/juju-swarm"
     image=swarm
     state=reloaded
-    restart-policy=always
+    restart_policy=always
     detach=true
     publish_all_ports=True
