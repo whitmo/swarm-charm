@@ -3,3 +3,4 @@
 set -e
 apt-get install -yq python-pip
 pip install -r hooks/requirements.txt
+mkdir -p /etc/ansible/facts.d
