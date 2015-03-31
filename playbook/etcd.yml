@@ -1,10 +1,12 @@
 ---
 - debug: msg="etcd"
 
+#@@ consider using handlers
 - name: join cluster
-  docker: 
+  docker:
     command="join --addr={{unit_private_address}}:2375 etcd://{{current_relation.hostname}}:{{current_relation.port}}/juju-swarm"
     image=swarm
     state=reloaded
+    restart-policy=always
     detach=true
     publish_all_ports=True
