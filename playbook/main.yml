@@ -10,7 +10,7 @@
         detach=true
         publish_all_ports=True
         name="swarm-node"
-        port={{unit_private_address}}:2375:2375
+        ports={{unit_private_address}}:2375:2375
     - name: manage cluster
       docker:
         command="{{manage_command}}"
@@ -18,7 +18,7 @@
         state=reloaded
         restart_policy=always
         detach=true
-        port={{unit_private_address}}:2376:2376
+        ports={{unit_private_address}}:2376:2376
         publish_all_ports=True
         name="swarm-manage"
   tasks:

@@ -7,19 +7,18 @@
     manage_command: "manage -H tcp://{{unit_private_address}}:2376 etcd://{{current_relation.hostname}}:{{current_relation.port}}/{{discovery_path}}"
 
 
-
 - name: set join command
   ini_file: "dest=/etc/ansible/facts.d/run.fact
              section=command
              option=join
-             value={{join_command}}
+             value='{{join_command}}'
              backup=yes"
 
 - name: set manage command
   ini_file: "dest=/etc/ansible/facts.d/run.fact
              section=command
-             option=join
-             value={{manage_command}}
+             option=manage
+             value='{{manage_command}}'
              backup=yes"
 
 - name: set reload
