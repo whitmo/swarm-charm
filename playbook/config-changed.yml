@@ -8,9 +8,9 @@
     state: present
 
 - set_fact:
-    join_command: "{{ansible_local.run.command.join|default('')}}"
-    manage_command: "{{ansible_local.run.command.manage|default('')}}"
-    reload: "{{ansible_local.run.state.reload|default('')}}"
+    join_command: "{{ansible_local.swarm.command.join|default('')}}"
+    manage_command: "{{ansible_local.swarm.command.manage|default('')}}"
+    reload: "{{ansible_local.swarm.state.reload|default('')}}"
 
 # if reloaded is reset, notify
 - name: reload containers
