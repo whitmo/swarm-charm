@@ -12,10 +12,14 @@
     manage_command: "{{ansible_local.run.command.manage|default('')}}"
     reload: "{{ansible_local.run.state.reload|default('')}}"
 
-- name: launch join
-  debug: msg="reload containers"
+# if reloaded is reset, notify
+- name: reloaded
+  ini_file: "dest=/etc/ansible/facts.d/run.fact
+             section=state
+             option=reload
+             value=''
+             backup=yes"
   notify:
     - join cluster
     - manage cluster
-    - reloaded
-  when: reload
+

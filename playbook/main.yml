@@ -1,14 +1,6 @@
 ---
 - hosts: all
   handlers:
-
-    - name: reloaded
-      ini_file: "dest=/etc/ansible/fact.d/run.fact
-                 section=state
-                 option=reload
-                 value=''
-                 backup=yes"
-
     - name: join cluster
       docker:
         command="{{join_command}}"
