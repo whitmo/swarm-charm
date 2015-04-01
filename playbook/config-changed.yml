@@ -13,7 +13,7 @@
     reload: "{{ansible_local.run.state.reload|default('')}}"
 
 # if reloaded is reset, notify
-- name: reloaded
+- name: reload containers
   ini_file: "dest=/etc/ansible/facts.d/run.fact
              section=state
              option=reload
@@ -22,4 +22,3 @@
   notify:
     - join cluster
     - manage cluster
-
