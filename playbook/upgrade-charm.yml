@@ -2,4 +2,4 @@
 - debug: msg="upgrade"
 
 - name: rerun prereqs
-  shell: {{charm_dir}}/hooks/install
+  shell: "hooks/install chdir={{charm_dir}}"
