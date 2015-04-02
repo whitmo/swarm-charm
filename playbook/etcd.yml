@@ -23,6 +23,7 @@
              backup=yes"
   notify:
     - manage cluster
+    - open management port
 
 
 - name: set reload
