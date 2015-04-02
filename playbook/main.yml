@@ -11,7 +11,8 @@
         restart_policy=always
         detach=true
         name="swarm-node"
-        ports={{unit_private_address}}:2375:2375
+        #ports={{unit_private_address}}:2375:2375
+        ports=2375:2375
     - name: manage cluster
       docker:
         command="{{manage_command}}"
@@ -19,7 +20,8 @@
         state=reloaded
         restart_policy=always
         detach=true
-        ports={{unit_public_address}}:5001:2375
+        #ports={{unit_public_address}}:5001:2375
+        ports=5001:2375
         name="swarm-manage"
   tasks:
     - debug: msg="wat"
