@@ -10,7 +10,6 @@
         state=reloaded
         restart_policy=always
         detach=true
-        publish_all_ports=True
         name="swarm-node"
         ports={{unit_private_address}}:2375:2375
     - name: manage cluster
@@ -20,8 +19,7 @@
         state=reloaded
         restart_policy=always
         detach=true
-        ports={{unit_private_address}}:2376:2376
-        publish_all_ports=True
+        ports={{unit_public_address}}:5001:2375
         name="swarm-manage"
   tasks:
     - debug: msg="wat"
