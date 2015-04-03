@@ -3,8 +3,8 @@
 
 - name: set commands
   set_fact:
-    join_command: "join --addr={{unit_private_address}}:2375 etcd://{{current_relation.hostname}}:{{current_relation.port}}/{{discovery_path}}"
-    manage_command: "manage -H tcp://{{unit_private_address}}:2375 etcd://{{current_relation.hostname}}:{{current_relation.port}}/{{discovery_path}}"
+    join_command: "join --addr={{unit_private_address}}:2375 etcd://{{etcd__hostname}}:{{etcd__port}}/{{discovery_path}}"
+    manage_command: "manage etcd://{{etcd__hostname}}:{{etcd__port}}/{{discovery_path}}"
 
 - name: set join command
   ini_file: "dest=/etc/ansible/facts.d/swarm.fact
