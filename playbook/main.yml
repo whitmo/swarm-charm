@@ -18,6 +18,7 @@
         restart_policy=always
         detach=true
         name="swarm-node"
+
     - name: manage cluster
       docker:
         command="{{manage_command}}"
@@ -27,6 +28,13 @@
         detach=true
         ports=5001:2375
         name="swarm-manage"
+
+    - name: open management port
+      command: open-port 5001
+
+    - name: close management port
+      command: close-port 5001
+
   tasks:
     - include: config-changed.yml
       tags:
