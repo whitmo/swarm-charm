@@ -2,7 +2,7 @@
 - hosts: all
   handlers:
     - name: open management port
-      command: open-port 2376
+      command: open-port 5001
     - name: join cluster
       docker:
         command="{{join_command}}"
@@ -11,8 +11,6 @@
         restart_policy=always
         detach=true
         name="swarm-node"
-        #ports={{unit_private_address}}:2375:2375
-        ports=2375:2375
     - name: manage cluster
       docker:
         command="{{manage_command}}"
@@ -20,15 +18,9 @@
         state=reloaded
         restart_policy=always
         detach=true
-        #ports={{unit_public_address}}:5001:2375
         ports=5001:2375
         name="swarm-manage"
   tasks:
-    - debug: msg="wat"
-      tags:
-        - config-changed
-        - upgrade-charm
-
     - include: config-changed.yml
       tags:
         - config-changed
