@@ -1,8 +1,15 @@
 ---
 - hosts: all
   handlers:
-    - name: open management port
-      command: open-port 5001
+    # # once we have tls/ssl
+    # - name: open docker port
+    #   command: open-port 2375
+    # - name: close docker port
+    #   command: close-port 2375
+
+    - name: restart socat
+      service: name=swarm-docker-port state=restarted
+
     - name: join cluster
       docker:
         command="{{join_command}}"

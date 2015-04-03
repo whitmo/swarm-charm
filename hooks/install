@@ -2,6 +2,7 @@
 
 set -e
 easy_install pip
+apt-get install -y socat
 pip install -r hooks/requirements.txt
 mkdir -p /etc/ansible/facts.d
 
