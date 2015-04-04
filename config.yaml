@@ -10,13 +10,9 @@ options:
 
       Using a discovery service via the discovery relation will trump
       any default.
-   
+
   discovery_path:
     type: string
     default: "juju-swarm"
     description: |
       Namespace for discovery for use with etcd.
-      
-      
-  
-  
