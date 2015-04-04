@@ -14,8 +14,8 @@ Let's deploy from this repo:
 
 Deploy the cluster:
 
-    juju deploy docker
-    juju deploy etcd
+    juju deploy docker && juju set docker latest=true
+    juju deploy cs:~hazmat/etcd
     juju deploy local:trusty/swarm
     juju add-relation swarm docker
     juju add-relation etcd swarm
