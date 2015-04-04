@@ -10,6 +10,9 @@
     - name: restart socat
       service: name=swarm-docker-port state=restarted
 
+    - name: restart docker
+      service: name=docker state=restarted
+
     - name: join cluster
       docker:
         command="{{join_command}}"

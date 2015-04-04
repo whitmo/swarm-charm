@@ -1,5 +1,8 @@
 ---
 - debug: msg="upgrade"
 
+- name: update ch
+  git: repo=https://github.com/whitmo/charmhelpers.git dest={{charm_dir}}/src/charmhelpers
+
 - name: rerun prereqs
   shell: "hooks/install chdir={{charm_dir}}"

@@ -11,6 +11,13 @@
   copy: src=files/socat-upstart.conf dest=/etc/init/swarm-docker-port.conf
   notify: restart socat
 
+- name: enable labels
+  lineinfile: dest=/etc/default/docker
+              backup=yes
+              line='DOCKER_OPTS="--label unit={{local_unit}} --label service={{service_name}}"'
+  notify:
+    - restart docker
+
 - set_fact:
     join_command: "{{ansible_local.swarm.command.join|default('')}}"
     manage_command: "{{ansible_local.swarm.command.manage|default('')}}"
