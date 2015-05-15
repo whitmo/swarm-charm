@@ -6,8 +6,9 @@ apt-get install -y socat
 pip install -r hooks/requirements.txt
 mkdir -p /etc/ansible/facts.d
 
-cat <<EOF > /etc/ansible/facts.d/swarm.fact
-[command]
+[ -s /etc/ansible/facts.d/swarm.fact ] \
+    && cat <<EOF > /etc/ansible/facts.d/docker.fact
+[swarm]
 join=
 manage=
 [state]
