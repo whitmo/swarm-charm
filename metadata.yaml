@@ -19,6 +19,9 @@ requires:
   etcd:
     interface: etcd
     optional: true
+  consul:
+    interface: consul
+    optional: true
   docker:
     interface: containers
     scope: container
