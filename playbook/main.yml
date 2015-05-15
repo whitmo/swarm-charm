@@ -1,5 +1,7 @@
 ---
 - hosts: all
+  vars:
+    docker_facts: /etc/ansible/facts.d/docker.fact
   handlers:
     # # once we have tls/ssl
     # - name: open docker port
@@ -9,9 +11,6 @@
 
     - name: restart socat
       service: name=swarm-docker-port state=restarted
-
-    - name: restart docker
-      service: name=docker state=restarted
 
     - name: join cluster
       docker:
