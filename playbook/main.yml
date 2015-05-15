@@ -58,3 +58,12 @@
     - include: etcd.yml
       tags:
         - etcd-relation-changed
+
+    - include: consul.yml
+      tags:
+        - consul-relation-changed
+
+    - include: state-server-cmd.yml
+      tags:
+        - etcd-relation-changed
+        - consul-relation-changed

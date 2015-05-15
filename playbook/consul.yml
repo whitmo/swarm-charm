@@ -1,0 +1,3 @@
+---
+- set_fact:
+    state_server_uri: "consul://{{consul__hostname}}:{{consul__port}}/{{discovery_path}}"
