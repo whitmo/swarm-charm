@@ -1,0 +1,6 @@
+---
+- set_fact:
+    join_command: "{{ansible_local.docker.command.join|default('')}}"
+    manage_command: "{{ansible_local.docker.command.manage|default('')}}"
+    reload: "{{ansible_local.docker.state.reload|default('')}}"
+    state_uri: "{{ansible_local.docker.state.uri|default('')}}"

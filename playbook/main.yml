@@ -50,9 +50,13 @@
       tags:
         - docker-cluster-relation-changed
 
-    - include: register.yml
+    - include: register-changed.yml
       tags:
         - register-relation-changed
+
+    - include: register-broken.yml
+      tags:
+        - register-relation-broken
 
     - include: etcd.yml
       tags:

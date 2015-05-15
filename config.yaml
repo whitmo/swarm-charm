@@ -1,5 +1,12 @@
 ---
 options:
+  discovery_file:
+    type: string
+    default: "/etc/swarm-nodes.txt"
+    description: |
+      Path to file listing nodes when using swarm without a discovery
+      service
+
   discovery_default:
     type: string
     default: file

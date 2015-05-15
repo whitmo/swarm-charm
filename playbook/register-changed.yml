@@ -1,0 +1,9 @@
+---
+- debug: msg="register"
+
+- name: record address
+  lineinfile:
+    dest={{nodes_file}}
+    create=yes
+    state=present
+    line="{{register__private_address}}:2375"

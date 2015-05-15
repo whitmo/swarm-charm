@@ -1,2 +1,7 @@
 ---
 - debug: msg="start"
+
+- include: load-facts.yml
+
+- name: file based discovery
+  include: file-based-discovery.yml

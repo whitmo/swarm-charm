@@ -11,10 +11,7 @@
   copy: src=files/socat-upstart.conf dest=/etc/init/swarm-docker-port.conf
   notify: restart socat
 
-- set_fact:
-    join_command: "{{ansible_local.swarm.command.join|default('')}}"
-    manage_command: "{{ansible_local.swarm.command.manage|default('')}}"
-    reload: "{{ansible_local.swarm.state.reload|default('')}}"
+- include: load-facts.yml
 
 # if reloaded is reset, notify
 - name: reload containers

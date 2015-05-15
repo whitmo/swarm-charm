@@ -1,2 +1,21 @@
 ---
 - debug: msg="stop"
+
+- name: record address
+  lineinfile:
+    dest={{discovery_file}}
+    create=yes
+    state=absent
+    line="{{ unit_private_address }}:2375"
+  notify:
+    - close managment port
+
+- name: stop cluster node
+  docker:
+    state=absent
+    name="swarm-node"
+
+- name: stop manage node
+  docker:
+    state=absent
+    name="swarm-manage"

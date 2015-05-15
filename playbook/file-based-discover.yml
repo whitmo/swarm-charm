@@ -1,0 +1,12 @@
+---
+- set_fact:
+    state_server_uri: "file:///{{discovery_file}}"
+
+- name: record address
+  lineinfile:
+    dest={{discovery_file}}
+    create=yes
+    state=present
+    line="{{ unit_private_address }}:2375"
+
+- include: state-server-cmd.yml

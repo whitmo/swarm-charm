@@ -1,0 +1,9 @@
+---
+- debug: msg="register broken"
+
+- name: remove address
+  lineinfile:
+    dest={{discovery_file}}
+    create=yes
+    state=absent
+    line="{{register__private_address}}:2375"
