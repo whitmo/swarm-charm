@@ -1,0 +1,14 @@
+bootstrap: false
+reset: false
+#setup: script
+#teardown: script
+tests: "run-*"
+virtualenv: true
+sources:
+    - ppas, etc
+packages:
+    - amulet
+    - python-requests
+# makefile:
+#     - lint
+#     - test
