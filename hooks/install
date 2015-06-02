@@ -5,3 +5,4 @@ easy_install pip
 apt-get install -y socat
 pip install --src=/opt/python-src -r hooks/requirements.txt
 mkdir -p /etc/ansible/facts.d
+cp playbook/files/empty-fact-file.ini /etc/ansible/facts.d/docker.fact

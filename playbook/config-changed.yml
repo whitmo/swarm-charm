@@ -1,11 +1,6 @@
 ---
 - debug: msg="config changed"
 
-- name: ensure fact file
-  copy: contents=files/empty-fact-file.ini
-        dest=/etc/ansible/facts.d/docker.fact
-        force=no
-
 - name: ensure swarm container
   docker:
     name: swarm
