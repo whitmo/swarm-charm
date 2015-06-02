@@ -3,4 +3,4 @@
     join_command: "{{ansible_local.docker.swarm.join|default('')}}"
     manage_command: "{{ansible_local.docker.swarm.manage|default('')}}"
     reload: "{{ansible_local.docker.state.reload|default('')}}"
-    state_uri: "{{ansible_local.docker.state.uri|default('')}}"
+    state_server_uri: "{{ansible_local.docker.state.uri|default('')}}"

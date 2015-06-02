@@ -2,6 +2,7 @@
 - hosts: all
   vars:
     docker_facts: /etc/ansible/facts.d/docker.fact
+    nodes_file: /etc/swarm-nodes.txt
   handlers:
     # # once we have tls/ssl
     # - name: open docker port

@@ -3,15 +3,15 @@
   ini_file: "dest={{docker_facts}}
              section=command
              option=join
-             value='{{state_uri}}'
+             value='{{state_server_uri}}'
              backup=yes"
   notify:
     - join cluster
 
 - name: set commands
   set_fact:
-    join_command: "join --addr={{unit_private_address}}:2375 {{state_uri}}"
-    manage_command: "manage {{state_uri}}"
+    join_command: "join --addr={{unit_private_address}}:2375 {{state_server_uri}}"
+    manage_command: "manage {{state_server_uri}}"
 
 - name: set join command
   ini_file: "dest={{docker_facts}}
