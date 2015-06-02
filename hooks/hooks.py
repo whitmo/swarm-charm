@@ -1,18 +1,14 @@
 #!/usr/bin/env python
-
-from charmhelpers.contrib.ansible import AnsibleHooks
-from path import path
+from ansiblecharm.runner import AnsibleHooks
 import sys
+import os
 
 
-def hook_names(here=path(__file__).parent):
-    for name in (x.basename() \
-                 for x in here.files() if x.islink()):
-        yield name
-
-
-hooks = AnsibleHooks(playbook_path='playbook/main.yml',
-                     default_hooks=list(hook_names()))
+def main(args=sys.argv):
+    hooks = AnsibleHooks(playbook_path='playbook/main.yml',
+                         hook_dir=os.path.dirname(__file__),
+                         default_hooks=['install'])
+    hooks.execute(args)
 
 if __name__ == "__main__":
-    hooks.execute(sys.argv, verbosity=3)
+    main()

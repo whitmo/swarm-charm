@@ -1,4 +1,5 @@
--e git+https://github.com/whitmo/charmhelpers.git#egg=charmhelpers
+-e git+https://github.com/whitmo/ansible-charm.git#egg=AnsibleCharm
+charmhelpers
 ansible>=1.9
 path.py
 docker-py
